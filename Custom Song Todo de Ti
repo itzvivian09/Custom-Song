@@ -1,21 +1,31 @@
-use_bpm 100
+use_bpm 128
+use_synth :bass_highend
 live_loop :square do
-  synth :piano
-  play :Bb4
+  play :bb4
+  sleep 0.5
+  play :eb4
+  sleep 0.5
+  play :gb4
+  sleep 0.5
+  play :eb4
+  sleep 0.5
+  play :ab4
+  sleep 0.5
+  play :db4
+  sleep 0.5
+  play :f4
+  sleep 0.5
+  play :db4
+  sleep 0.5
+  play :f4
+end
+sleep 4
+live_loop :blip do
+  sample :elec_blip2,amp: 3,beat_stretch: 4
   sleep 1
-  play :Eb4
-  sleep 1
-  play :Gb4
-  sleep 1
-  play :Eb4
-  sleep 1
-  play :Ab4
-  sleep 1
-  play :Db4
-  sleep 1
-  play :F4
-  sleep 1
-  play :Db4
-  sleep 1
-  play :F4
+end
+sleep 8
+live_loop :chip do
+  sample :bd_chip
+  sleep 2
 end
