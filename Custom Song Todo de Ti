@@ -1,0 +1,21 @@
+use_bpm 100
+live_loop :square do
+  synth :piano
+  play :Bb4
+  sleep 1
+  play :Eb4
+  sleep 1
+  play :Gb4
+  sleep 1
+  play :Eb4
+  sleep 1
+  play :Ab4
+  sleep 1
+  play :Db4
+  sleep 1
+  play :F4
+  sleep 1
+  play :Db4
+  sleep 1
+  play :F4
+end
