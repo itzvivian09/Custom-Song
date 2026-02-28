@@ -1,31 +1,33 @@
 use_bpm 115
 use_synth :prophet
 
-# VARIABLES TO STORE SAMPLES
-Bad_Bunny= "/Users/vivianvargas/Downloads/titi mi pregunto.mp3"
+Bad_Bunny = "/Users/vivianvargas/Downloads/titi mi pregunto.mp3"
+summer = "/Users/vivianvargas/Downloads/Summer beat.mp3"
 
-# FUNCTION 
 define :melody_pattern do
-  play :bb4
+  play :bb4, amp: 0.5
   sleep 0.5
-  play :eb4
+  play :eb4, amp: 0.5
   sleep 0.5
-  play :gb4
+  play :gb4, amp: 0.5
   sleep 0.5
-  play :eb4
+  play :eb4, amp: 0.5
   sleep 0.5
 end
 
-4.times do
-  melody_pattern
+live_loop :cymbal_slow do
+  sample :drum_cymbal_closed, amp: 0.6
+  sleep 0.5
+  sample :drum_cymbal_pedal, amp: 0.6
+  sleep 0.5
 end
-sample Bad_Bunny do
+
+sleep 8
+live_loop :drums do
+  sample :bd_haus, amp: 1
+  sleep 2
 end
 sleep 4
-live_loop :drums do
-  sample :bd_haus
-  sleep 4
-end
 live_loop :melody do
   melody_pattern
 end
