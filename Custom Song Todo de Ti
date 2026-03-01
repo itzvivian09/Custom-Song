@@ -1,65 +1,66 @@
 use_bpm 115
 use_synth :prophet
 
-# Custom sample
+# VARIABLES
 middle = "/Users/vivianvargas/Downloads/middle.mp3"
 
-live_loop :metro do
-  sleep 1
-end
-
-# FUNCTION (melody pattern)
+# FUNCTION – melody pattern
 define :melody_pattern do
-  play :bb4, amp: 0.6
+  play :bb4, amp: 0.5
   sleep 0.5
-  play :eb4, amp: 0.6
+  play :eb4, amp: 0.5
   sleep 0.5
-  play :gb4, amp: 0.6
+  play :gb4, amp: 0.5
   sleep 0.5
-  play :eb4, amp: 0.6
+  play :eb4, amp: 0.5
   sleep 0.5
 end
 
-live_loop :cymbals do
-  sync :metro
-  16.times do
-    sample :drum_cymbal_closed, amp: 0.7
-    sleep 0.5
-    sample :drum_cymbal_pedal, amp: 0.7
-    sleep 0.5
+live_loop :cybol do
+  8.times do
+    sample :drum_cymbal_closed, amp: 0.6
+    sleep 1
+    sample :drum_cymbal_pedal, amp: 0.5
+    sleep 1
+  end
+  stop
+end
+
+live_loop :drums do
+  sleep 4
+  4.times do
+    sample :bd_haus, amp: 1.5
+    sleep 2
   end
   stop
 end
 
 live_loop :melody do
-  sync :metro
-  sleep 4
-  6.times do
+  sleep 8
+  4.times do
     melody_pattern
   end
   stop
 end
 
 live_loop :middle do
-  sync :metro
   sleep 8
-  sample middle, amp: 0.6, finish: 0.3
+  sample middle, amp: 0.4, finish: 0.3
   sleep 8
   stop
 end
 
 live_loop :ending do
-  sync :metro
-  sleep 12
+  sleep 16
   
-  8.times do
-    sample :drum_snare_hard, amp: 1.5
-    sleep 0.25
+  1.times do
+    melody_pattern
   end
   
-  sample :drum_cymbal_open, amp: 2
-  sample middle, amp: 0.6, sustain: 1, release: 0
-  sleep 2
+  4.times do
+    sample :drum_cymbal_closed, amp: 0.7
+    sleep 0.25
+  end
   
   stop
 end
