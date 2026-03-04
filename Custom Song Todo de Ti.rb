@@ -2,7 +2,7 @@ use_bpm 115
 use_synth :prophet
 
 # VARIABLES
-middle = "/Users/vivianvargas/Downloads/middle.mp3"
+melody = "/Users/vivianvargas/Downloads/titi mi pregunto.mp3"
 
 # FUNCTION – melody pattern
 define :melody_pattern do
@@ -43,12 +43,6 @@ live_loop :melody do
   stop
 end
 
-live_loop :middle do
-  sleep 8
-  sample middle, amp: 0.4, finish: 0.3
-  sleep 8
-  stop
-end
 
 live_loop :ending do
   sleep 16
